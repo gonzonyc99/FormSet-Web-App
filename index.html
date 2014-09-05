@@ -1,0 +1,280 @@
+<html> 
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    	<meta name="viewport" content ="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="apple-touch-fullscreen" content="yes" /> 
+        <meta name="apple-mobile-web-app-capable" content="yes" /> 
+        <title>Form Set</title> 
+        <link rel="shortcut icon" type="image/png"  href="image/logo.png">
+        <link rel="stylesheet" type="text/css" href="css/colpick.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+        
+        <script type="text/javascript" src="js/lib/jquery-2.1.0.min.js"></script> 
+        <script type="text/javascript" src="js/lib/jquery-ui.js"></script> 
+        <script type="text/javascript" src="js/lib/jquery.ui.touch-punch.min.js"></script> 
+    	<script type="text/javascript" src="js/lib/ajaxupload.3.5.js"></script>
+        <script type="text/javascript" src="js/lib/colpick.js"></script> 
+        <script type="text/javascript" src="js/lib/fabric-1.4.3.js"></script> 
+        <script type="text/javascript" src="js/lib/progressbar.min.js"></script>
+        
+        <script type="text/javascript" src="js/design.min.js"></script>
+        <script type="text/javascript" src="js/main.min.js"></script>
+    </head>
+    <body>
+    	<div id="tab-bar">
+        	<img src="images/logo.jpg" />
+            <div id="tab-title">
+            	<div class="tab-menu" id="tab-menu-create">
+                	<div class="tab-title-container"><span>1. CREATE</span></div>
+                    <div class="select-bar selected"></div>
+                </div>
+            	<div class="tab-menu" id="tab-menu-design">
+                	<div class="tab-title-container"><span>2. DESIGN</span></div>
+                    <div class="select-bar"></div>
+                </div>
+            	<div class="tab-menu" id="tab-menu-export">
+                	<div class="tab-title-container"><span>3. EXPORT</span></div>
+                    <div class="select-bar"></div>
+                </div>
+            </div>
+        </div>
+        <div id="tab-container">
+        	<!-- first tab -->
+        	<div id="create-content" class="tab-item">
+            	<div id="wall-content">
+                	<table>
+                    	<tr>
+                        	<td>
+                            	<div class="td-content">
+                                	<div class="text-item" style="height:25px;"><div style="margin-left:-40px;">HEIGHT</div></div>
+                                    <div class="text-item"><div class="height-mark"></div>
+                                    	<select class="heigh-text">
+                                        </select>
+                                        <span>ft</span>
+                                        <!--
+                                    	<input type="text" class="heigh-text" /><span>ft</span>
+                                         -->
+                                    </div>
+                            	</div>
+                            </td>
+                        	<td>
+                            	<div class="td-content">
+                                	<div class="text-item" style="height:25px;"><div style="margin-left:-40px;">WIDTH</div></div>
+                                    <div class="text-item"><div class="width-mark"></div>
+                                    	<select class="weight-text">
+                                        </select>
+                                        <span>ft</span>
+										<!--
+                                    	<input type="text" class="weight-text" /><span>ft</span>
+                                        -->
+                                    </div>
+                            	</div>
+                            </td>
+                        	<td><img src="images/wall-size.jpg" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="stage-content">
+                	<table>
+                    	<tr>
+                        	<td>
+                            	<div class="td-content">
+                                	<div class="text-item" style="height:25px;"><div style="margin-left:-40px;">HEIGHT</div></div>
+                                    <div class="text-item"><div class="height-mark"></div>
+                                    	<select class="heigh-text">
+                                        </select>
+										<span>ft</span>
+                                        <!--
+                                    	<input type="text" class="heigh-text" /><span>ft</span>
+                                        -->
+                                    </div>
+                                    
+                            	</div>
+                            </td>
+                        	<td>
+                            	<div class="td-content">
+                                	<div class="text-item" style="height:25px;"><div style="margin-left:-40px;">WIDTH</div></div>
+                                    <div class="text-item"><div class="width-mark"></div>
+                                    	<select class="weight-text">
+                                        </select>
+                                        <span>ft</span>
+										<!--
+	                                    <input type="text" class="weight-text" /><span>ft</span>
+                                    	-->
+                                    </div>
+                                    
+                            	</div>
+                            </td>
+                        	<td><!--img src="images/stage-size.jpg" /--><div class="chkbox"></div><!--input type="checkbox" name="stage-chkbox" /--></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="button-content">
+                	<button id="submit-button">SUBMIT</button>
+                </div>
+            </div>
+            
+            <!-- second tab -->
+            <div id="design-content" class="tab-item">
+            	<div class="main-container">
+                	<div id="model-container">
+                    	<!-- added html using javascript -->
+                    </div>
+                    <div id="eidt-container">
+                    	<div id="edit-board">
+                        	<div id="design-stage-board">
+                        		<canvas id="design-stage" width="100", height="100"></canvas>
+                            </div>
+                        </div>
+                        <div id="tool-board">
+                        	<img src="images/zoom.png" id="zoom-mark" />
+                            <input type="range" min="0" max="100" value="0" step="1" id="zoom-control" />
+                        	<img src="images/hand.jpg" id="hand-mark" class="button-img" />
+                            <div id="color-box" class="button-img" style="display: inline-block; width:70px; height:70px; float:left; cursor:pointer;"><div class="color-inbox"></div></div>
+                            <img src="images/preview.jpg" id="preview-mark" class="button-img" />
+                            <img src="images/delete.jpg" id="delete-mark" class="button-img" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- third tab -->
+            <div id="export-content" class="tab-item">
+            	<div class="main-container">
+                	<div class="export-board">
+                		<form action="1.php" id="user-detail" method="post">
+                			<fieldset>
+                				<div style="display: inline-block;"> 
+	                				<p>
+	                					<img src="images/icon-person.png" />
+	                					<input name="name" type="text" placeholder="NAME" required="required" />
+	                				</p>
+	                				<p>
+	                					<img src="images/icon-mail.png" />
+	                					<input name="email" type="email" placeholder="EMAIL" />
+	                				</p>
+	                				<p>
+	                					<img src="images/icon-calender.png" />
+	                					<input name="date-from" type="text" class="datepicker" placeholder="FROM" readonly="readonly" />
+	                				</p>
+	                				<p>
+	                					<img src="images/icon-city.png" />
+	                					<input name="city" type="text" placeholder="EVENT CITY, STATE" />
+	                				</p>
+                				</div>
+                				<div style="display: inline-block; vertical-align: top;">
+	                				<p>
+	                					<img src="images/icon-company.png" />
+	                					<input name="company" type="text" placeholder="COMPANY" />
+	                				</p>
+	                				<p>
+	                					<img src="images/icon-phone.png" />
+	                					<input name="tel" type="tel" placeholder="PHONE NUMBER" />
+	                				</p>
+	                				<p>
+	                					<img src="images/icon-calender.png" />
+	                					<input name="date-to" type="text" class="datepicker" placeholder="TO" readonly="readonly" />
+	                				</p>
+									<p>
+										<table>
+				                        	<tr>
+				                            	<td>
+				                                	<div id="export-contain">
+				                                    	<div style="width:100%; height:30px; background:url(images/icon-shape1.png) no-repeat;">
+				                                        	<span style="float:left; margin-top:4px; font-size:20px; font-weight: bold; color:#666; margin-left:15px;">EXPORT TO</span>
+				                                        </div>
+				                                        <div class="export-items" id="export-type">
+				                                        	<div class="export-sub-item" id="export-jpg">
+				                                            	<span>JPG</span>
+				                                                <div class="width-mark selected"></div>
+				                                            </div>
+				                                        	<div class="export-sub-item" id="export-png">
+				                                            	<span>PNG</span>
+				                                                <div class="width-mark"></div>
+				                                            </div>
+				                                        </div>
+				                                        <div class="export-items" id="export-size">
+				                                        	<div class="export-sub-item" id="export-small">
+				                                            	<span>SMALL</span>
+				                                                <div class="width-mark selected"></div>
+				                                            </div>
+				                                        	<div class="export-sub-item" id="export-medium">
+				                                            	<span>MEDIUM</span>
+				                                                <div class="width-mark"></div>
+				                                            </div>
+				                                        	<div class="export-sub-item" id="export-large">
+				                                            	<span>LARGE</span>
+				                                                <div class="width-mark"></div>
+				                                            </div>
+				                                        </div>
+				                                    </div>
+				                                </td>
+				                            </tr>
+				                        </table>
+									</p>	                				
+	                			</div>
+	                			<input type="hidden" name="img_data" id="img_data" value="" />
+                			</fieldset>
+                		</form>
+                    </div>
+                    <div class="button-board">
+                    	<button id="export-button">SUBMIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mask-container"></div>
+        <div id="preview-container">
+        	<div id="preview-content">
+            	<canvas id="preview-stage" width="100", height="100"></canvas>
+            </div>
+            <div id="preview-window-buttons">
+                <img src="images/upload.jpg" id="upload-button" title="Upload File" />
+                <img src="images/close.jpg" id="close-button" />
+            </div>
+        </div>
+        <div id="mask-container1"></div>
+        <div id="wait-container">
+        	<table><tr><td><img src="images/loader.gif" /></td></tr></table>
+        </div>
+        <div id="instruction">
+        	<div id="instruction-board">
+            	<div id="instruction-title">
+                	<img src="images/close.jpg" id="instruction-button" />
+                </div>
+                <div id="instruction-content">
+        	<p>Welcome to FormSet's Online Wall Rendering Tool!</p><span>To get started please enter the Height and Width of your wall! Once you have entered this information you can choose from several pallets with designs to drag and drop and create your custom wall!<br>If your wall will be used on a stage, please enter the height and width as well!</span>
+            	</div>
+			</div>
+        </div>
+        
+        <div id="design-instruction">
+        	<div id="instruction-board">
+            	<div id="instruction-title">
+                	<img src="images/close.jpg" id="design-instruction-button" />
+                </div>
+                <div id="instruction-content">
+                	<span>“Welcome to the Design Page! Choose from one of FormSet’s designs to the left, drag and drop the square where you’d like it on the grid, and add color to each block using the color picker.
+						<br/><br/>
+						Preview what your wall will look like in your venue with your stage by selecting “Preview” and uploading a picture of your venue.
+						<br/><br/>
+						Once you designed your wall, add a video screen, a silhouette for frame, or even your logo as a final touch!
+						<br/><br/>
+						When you’re ready, click on the export tab to download your rendering!”
+					</span>
+            	</div>
+			</div>
+			<img src="images/1.png" id="arrow_1" />
+        	<img src="images/2.png" id="arrow_2" />
+        	<img src="images/3.png" id="arrow_3" />
+	    </div>
+        <form method="post" accept-charset="utf-8" name="form1">
+            <input name="form1_data1" id='form1_data1' type="hidden"/>
+            <input name="form1_data2" id='form1_data2' type="hidden"/>
+        </form>
+        
+        <input type="file" id="image-files" style="display:none">
+    </body> 
+</html> 
